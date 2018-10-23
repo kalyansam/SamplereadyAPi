@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="f9dcd38f-0a0b-4e7b-b5c5-d3cce39e1ef0" name="Batch_Test  TestSuite_Responses" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="f9dcd38f-0a0b-4e7b-b5c5-d3cce39e1ef0fileName">Batch_Test--TestSuite_Responses</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

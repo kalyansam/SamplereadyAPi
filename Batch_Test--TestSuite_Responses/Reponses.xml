@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="bf3c3c4b-23af-4a91-89c3-3c5a99147682" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Reponses" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="bf3c3c4b-23af-4a91-89c3-3c5a99147682fileName">Reponses</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="Copy of Get Staartdate Enddate" id="8da17351-6e31-481c-9db4-f053991e3a2c">
+        <con:settings/>
+        <con:config><script>import java.io.*
+import java.lang.*
+import groovy.json.JsonSlurper
+//import static com.jayway.jsonpath.JsonPath.parse
+def file1 =new File('C:/Users/t160670/Downloads/MVPResults11.csv')
+//boolean fileSuccessfullyDeleted =  new File(file1).delete()
+//file1.append(" Active Coverage" + "," + "Coverage type" + "," + "policyNumber"+ "," + "dependentDOB"+ "," + "startDate" + "," + "endDate" + "," + "planNm" + "," + "startDtDTP" + "," + "endDtDTP" + "," + "errorCode" + "," + "errorDescription" + "," )
+//file1.append("\r\n")
+def TEST_FILE_NAME = 'C:/Users/t160670/Downloads/apache-jmeter-4.0/MVPResults1.csv'
+//def jsonSlurper = new JsonSlurper()
+//def parsedJson = jsonSlurper.parseText(json )
+//                            Integer i = 0
+                                new File(TEST_FILE_NAME).withReader { reader ->
+                                reader.eachLine { line ->
+                                log.info(line)
+                                if ( (line.length() != 0)  &amp;&amp; ( line.contains ('verificationCoreResponse')))
+                                {
+                                                def list = new JsonSlurper().parseText( line )
+//                                            log.info(list [0])
+//                            log.info(list.matchedMemberList.segmentID)
+//                            file1.append(list.matchedMemberList.segmentID + "," + list.matchedMemberList.ruleCd + "," + list.matchedMemberList.ruleStatus + "\r\n")
+                                                file1.append(list.verificationCoreResponse.coverageCode + "," + list.verificationCoreResponse.coverageType + "," + list.verificationCoreResponse.policyNumber + "," + list.verificationCoreResponse.dependentDOB +"," + list.verificationCoreResponse.startDate + "," + list.verificationCoreResponse.endDate + "," + list.verificationCoreResponse.planNm + "," +list.startDtDTP + "," + list.endDtDTP + "," + list.verificationCoreResponse.errorCode + "," +list.verificationCoreResponse.errorDescription + "," +list.verificationCoreResponse.transactionID + "\r\n")
+                                }
+                                }
+        }
+
+</script></con:config>
+      </con:testStep><con:properties/><con:reportParameters/></con:testCase>
